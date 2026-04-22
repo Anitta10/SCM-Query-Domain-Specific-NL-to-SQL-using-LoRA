@@ -1,0 +1,41 @@
+"""
+╔══════════════════════════════════════════════════════════════════════╗
+║   LoRA Fine-Tuning — Qwen3:4b  ×  SCM NL-to-SQL Dataset (1187)     ║
+║   Model loaded from local safetensors                               ║
+║   Author: AI Engineering Pipeline                                    ║
+╚══════════════════════════════════════════════════════════════════════╝
+ 
+REQUIREMENTS (install order matters):
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    pip install transformers==4.45.0
+    pip install peft==0.12.0
+    pip install trl==0.11.0
+    pip install datasets==2.21.0
+    pip install accelerate==0.34.0
+    pip install bitsandbytes==0.43.3
+    pip install safetensors==0.4.5
+    pip install scipy scikit-learn
+    pip install wandb          # optional – for experiment tracking
+ 
+FOLDER STRUCTURE EXPECTED:
+    ./
+    ├── train_lora_qwen3_scm.py          ← this file
+    ├── evaluate_lora_qwen3_scm.py       ← evaluation script
+    ├── data/
+    │   ├── scm_nl2sql_train_1187.jsonl
+    │   ├── scm_nl2sql_val_1187.jsonl
+    │   └── scm_nl2sql_test_1187.jsonl
+    └── qwen3_4b_base/                   ← your safetensor model folder
+        ├── config.json
+        ├── tokenizer.json
+        ├── tokenizer_config.json
+        ├── model.safetensors            (or model-00001-of-XXXXX.safetensors etc.)
+        └── generation_config.json
+ 
+OUTPUTS:
+    ./outputs/lora_scm_nl2sql/
+        ├── checkpoint-XXX/              ← saved every N steps
+        ├── adapter_config.json          ← LoRA adapter config
+        ├── adapter_model.safetensors    ← trained LoRA weights only (~80MB)
+        └── training_log.json
+"""

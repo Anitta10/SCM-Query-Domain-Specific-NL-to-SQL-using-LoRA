@@ -1,0 +1,10 @@
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    pip install transformers==4.45.0
+    pip install peft==0.12.0
+    pip install trl==0.11.0
+    pip install datasets==2.21.0
+    pip install accelerate==0.34.0
+    pip install bitsandbytes==0.43.3
+    pip install safetensors==0.4.5
+    pip install scipy scikit-learn
+    pip install wandb          # optional – for experiment tracking
